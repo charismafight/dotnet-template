@@ -19,3 +19,5 @@ This is a personal template for backend project, to reduce duplicated startup th
 13. dotnet add package StyleCop.Analyzers.
 14. about Directory.Packages.props, some built-in packages will be added when executing dotnet new, we should add it to Directory.Packages.props first to keep the command going.
 15. global.json specifies the dotnet version dotnet cli command used, it was set to '9.0.100' as the latest till this submit.
+16. in the root folder, use dotnet new xunit -o {testProjectName} to create testproject
+17. dotnet sln add {path to test.csproj} to add project to sln file
