@@ -47,3 +47,15 @@ builder.Services.AddSqlite<DataContext>(builder.Configuration.GetConnectionStrin
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
+
+## Seeding data
+
+Seeding can be set in OnConfiguring method of the DbContext subclass:
+
+```c#
+optionsBuilder.UseSeeding((context, _) =>
+    // use context to prepare data
+);
+```
+
+After executing `dotnet ef database update`, UseSeeding method will be triggered.
