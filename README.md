@@ -23,3 +23,22 @@ This is a personal template for backend project, to reduce duplicated startup th
 17. global.json specifies the dotnet version dotnet cli command used, it was set to '9.0.100' as the latest till this submit.
 18. in the root folder, use dotnet new xunit -o {testProjectName} to create testproject.
 19. dotnet sln add {path to test.csproj} to add project to sln file, if visual studio is needed.
+20. cors problem: if API needs to be visit from an individually deployed website, add cors in Program.cs as follow or add specific headers, ips, or ports:
+
+```c#
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+            b =>
+            {
+                b.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+            });
+});
+
+...other codes
+
+app.UseCors();
+
+```
